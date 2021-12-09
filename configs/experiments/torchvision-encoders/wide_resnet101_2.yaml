@@ -1,0 +1,13 @@
+includes:
+  - ./defaults.yaml
+
+model_config:
+  unimodal_image:
+    modal_encoder:
+      type: torchvision_resnet
+      params:
+        name: wide_resnet101_2
+        pretrained: true
+        zero_init_residual: true
+        pool_type: avg
+        num_output_features: 1

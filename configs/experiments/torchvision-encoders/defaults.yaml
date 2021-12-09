@@ -1,0 +1,60 @@
+model_config:
+  unimodal_image:
+
+    classifier:
+      type: mlp
+      params:
+        in_dim: 2048
+        out_dim: 2
+        hidden_dim: 768
+        num_layers: 2
+
+    losses:
+    - type: cross_entropy
+
+    # Either pretraining or classification
+    direct_features_input: false
+    freeze_base: false
+    finetune_lr_multiplier: 1
+    # Dimension of the embedding finally returned by the modal encoder
+    modal_hidden_size: 2048
+    # Used when classification head is activated
+
+    modal_encoder:
+      type: resnet152
+      params:
+        pretrained: true
+        pool_type: avg
+        num_output_features: 1
+
+
+scheduler:
+  type: warmup_linear
+  params:
+    num_warmup_steps: 2000
+    num_training_steps: ${training.max_updates}
+
+optimizer:
+  type: adam_w
+  params:
+    lr: 1e-5
+    eps: 1e-8
+
+evaluation:
+  metrics:
+  - accuracy
+  - binary_f1
+  - roc_auc
+
+training:
+  batch_size: 32
+  lr_scheduler: true
+  max_updates: 22000
+  early_stop:
+    enabled: true
+    criteria: hateful_memes/roc_auc
+    minimize: false
+
+checkpoint:
+  pretrained_state_mapping:
+    base: base

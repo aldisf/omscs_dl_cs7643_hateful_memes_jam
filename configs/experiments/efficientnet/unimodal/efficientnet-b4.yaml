@@ -1,0 +1,12 @@
+includes:
+  - ./defaults.yaml
+  
+model_config:
+  unimodal_efficientnet:
+
+    image_encoder:
+      name: efficientnet-b4
+
+    classifier:
+      params:
+        in_dim: 1792

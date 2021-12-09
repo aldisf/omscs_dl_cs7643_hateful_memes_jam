@@ -1,0 +1,8 @@
+# Taken from Facebook Research's MMF Github repository
+# on 09th December 2021:
+# https://github.com/facebookresearch/mmf
+includes:
+- ./defaults.yaml
+
+training:
+  batch_size: 128

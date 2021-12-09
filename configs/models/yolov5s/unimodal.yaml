@@ -1,0 +1,15 @@
+model_config:
+  unimodal_yolov5s:
+
+    classifier:
+      type: mlp
+      params:
+        in_dim: 12544
+        out_dim: 2
+        hidden_dim: 768
+        num_layers: 2
+
+    image_encoder:
+      name: yolov5s
+      pool_type: avg
+      num_output_features: 1

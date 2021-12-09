@@ -1,0 +1,15 @@
+model_config:
+  unimodal_efficientnet:
+
+    classifier:
+      type: mlp
+      params:
+        in_dim: 1280
+        out_dim: 2
+        hidden_dim: 768
+        num_layers: 2
+
+    image_encoder:
+      name: efficientnet-b0
+      pool_type: avg
+      num_output_features: 1

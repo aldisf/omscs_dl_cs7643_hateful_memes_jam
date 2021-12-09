@@ -1,0 +1,6 @@
+# Taken from Facebook Research's MMF Github repository
+# on 09th December 2021:
+# https://github.com/facebookresearch/mmf
+model_config:
+  visual_bert:
+    training_head_type: classification

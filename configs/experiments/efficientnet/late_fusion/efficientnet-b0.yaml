@@ -1,0 +1,12 @@
+includes:
+  - ./defaults.yaml
+  
+model_config:
+  late_fusion_efficientnet:
+
+    image_encoder:
+      name: efficientnet-b0
+
+    image_classifier:
+      params:
+        in_dim: 1280

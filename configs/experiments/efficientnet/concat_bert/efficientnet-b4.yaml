@@ -1,0 +1,15 @@
+includes:
+  - ./defaults.yaml
+  
+model_config:
+  concat_bert_efficientnet:
+
+    image_encoder:
+      name: efficientnet-b4
+
+    classifier:
+      params:
+        in_dim: 2560  # 1792 + 768
+
+training:
+  batch_size: 32

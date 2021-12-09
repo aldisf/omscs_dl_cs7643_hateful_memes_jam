@@ -1,0 +1,9 @@
+includes:
+- ./defaults.yaml
+
+training:
+  batch_size: 32
+
+checkpoint:
+  resume_pretrained: true
+  resume_zoo: visual_bert.pretrained.coco

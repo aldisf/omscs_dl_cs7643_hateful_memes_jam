@@ -1,0 +1,29 @@
+includes:
+- ./text.yaml
+- configs/datasets/hateful_memes/bert.yaml
+- configs/models/unimodal/bert.yaml
+
+model_config:
+  unimodal_text_modified_roberta:
+    bert_model_name: roberta-base
+    classifier:
+      type: mlp
+      params:
+        in_dim: 768
+        num_layers: 2
+
+dataset_config:
+  hateful_memes:
+    processors:
+      text_processor:
+        type: bert_tokenizer
+        params:
+          tokenizer_config:
+            type: roberta-base
+            params:
+              do_lower_case: true
+          mask_probability: 0
+          max_seq_length: 128
+
+training:
+  batch_size: 16

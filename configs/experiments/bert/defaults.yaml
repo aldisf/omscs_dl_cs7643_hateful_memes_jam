@@ -1,0 +1,18 @@
+# Taken from Facebook Research's MMF Github repository
+# on 09th December 2021:
+# https://github.com/facebookresearch/mmf
+includes:
+- ./text.yaml
+- configs/datasets/hateful_memes/bert.yaml
+- configs/models/unimodal/bert.yaml
+
+model_config:
+  unimodal_text:
+    classifier:
+      type: mlp
+      params:
+        in_dim: 768
+        num_layers: 2
+
+training:
+  batch_size: 128

@@ -1,0 +1,13 @@
+includes:
+  - ./defaults.yaml
+
+model_config:
+  unimodal_image:
+    modal_encoder:
+      type: torchvision_resnet
+      params:
+        name: resnext50_32x4d
+        pretrained: true
+        zero_init_residual: true
+        pool_type: avg
+        num_output_features: 1
