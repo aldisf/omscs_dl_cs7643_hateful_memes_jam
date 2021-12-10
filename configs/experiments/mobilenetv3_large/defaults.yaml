@@ -1,5 +1,5 @@
 model_config:
-  mobilenetv3_large:
+  unimodal_mobilenetv3_large:
 
     losses:
     - type: cross_entropy

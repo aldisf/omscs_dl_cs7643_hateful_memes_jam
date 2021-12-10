@@ -122,7 +122,7 @@ class MobileNetv3LargeEncoder(Encoder):
         super().__init__()
         self.config = config
         model = torchvision.models.mobilenet_v3_large(pretrained=True)
-        modules = list(model.model.children())[:-1]
+        modules = list(model.children())[:-1]
         self.model = nn.Sequential(*modules)
 
     def forward(self, x):
