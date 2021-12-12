@@ -32,7 +32,6 @@ def format_mmf_master_dataset(
     # Add suffix of 0001 to prevent conflicting ids with original
     # hateful_memes dataset
     id_ = f"{id_}0001"
-    img_ = f"{parent_img_folder}/{sub_folder}/{id_}.png"
     img_ = f"{parent_img_folder}/{id_}.png"
     label_ = 0 if label_ == "not harmful" else 1
 

@@ -116,6 +116,8 @@ We are using the [HarMeme](https://github.com/di-dimitrov/mmf) and [MultiOFF](ht
 2. Annotation files are located in the Split Dataset directory
 3. Images are located in the Labelled Images directory
 
+After downloading the files, you can refer to the specific instructions inside the `./dataset_expansion` folder [here](./dataset_expansion/README.md)
+
 # Running The Experiments
 
 ### BERT
@@ -143,8 +145,6 @@ mmf_run config=mmf/projects/hateful_memes/configs/visual_bert/direct.yaml     mo
 ```
 mmf_run config=mmf/projects/hateful_memes/configs/visual_bert/visual_bert_hateful.yaml     model=visual_bert     dataset=hateful_memes
 ```
-
-
 
 
 # Running The Experiments
