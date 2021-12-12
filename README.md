@@ -51,8 +51,70 @@ pip install -r requirements.txt
 
 # Building the Hateful Memes Dataset
 
-To build the Hateful Memes dataset, `mmf` will need to be installed first. 
+To build the Hateful Memes dataset, `mmf` will need to be installed first. After `mmf` has been installed,
+the Hateful Memes dataset can then be built by following these steps:
 
+1. Download the Hateful Memes dataset from https://hatefulmemeschallenge.com/ (~4GB)
+2. Unzip the Hateful Memes dataset: 
+
+```
+unzip hateful_memes.zip
+```
+
+3. To use the MMF framework, convert the dataset to MMF format: 
+
+```
+mmf_convert_hm --zip_file hateful_memes.zip --password '' --bypass_checksum=1
+```
+
+4. Modify the directory structure to match the following:
+
+```
+#   defaults
+#       annotations
+#           <*.jsonl files>
+#       images
+#           data
+#               <metadata_txt_files>
+#           img
+#               <all the images>
+```
+
+The following shell commands can help to achieve step (4).
+
+```
+mkdir ~/.cache/torch/mmf/data/datasets/hateful_memes/defaults/annotations
+
+cp ~/.cache/torch/mmf/data/datasets/hateful_memes/defaults/images/hateful_memes/*.jsonl ~/.cache/torch/mmf/data/datasets/hateful_memes/defaults/annotations
+
+mkdir ~/.cache/torch/mmf/data/datasets/hateful_memes/defaults/images/
+
+cp -r ~/.cache/torch/mmf/data/datasets/hateful_memes/defaults/images/hateful_memes/img ~/.cache/torch/
+
+mmf/data/datasets/hateful_memes/defaults/images/
+```
+
+You may get an error saying that `train.jsonl` does not exist when running `mmf_convert_hm` in step
+(2) above. Seems like it can be ignored as long as the directory structures and content are arranged
+as above.
+
+# Expanding the Hateful Memes Dataset
+
+We expand the dataset directly by adding images to the folder and the `train.jsonl` file under
+the annotations folder. The jsonlines file will specify which images are to be used as the
+training set, together with their specified id, path, label, and text information.
+
+We are using the [HarMeme](https://github.com/di-dimitrov/mmf) and [MultiOFF](https://drive.google.com/drive/folders/1hKLOtpVmF45IoBmJPwojgq6XraLtHmV6) datasets as expansions. To download them:
+
+### HarMeme Dataset
+1. Download the zip file of the repository https://github.com/di-dimitrov/mmf
+2. Annotation files are located in `data/datasets/memes/defaults/annotations`
+3. Images are located in `data/datasets/memes/defaults/images`
+
+### MultiOFF Dataset
+1. Download the dataset from Google Drive: https://drive.google.com/drive/folders/1hKLOtpVmF45IoBmJPwojgq6XraLtHmV6
+2. Annotation files are located in the Split Dataset directory
+3. Images are located in the Labelled Images directory
 
 # Running The Experiments
 
@@ -82,7 +144,7 @@ mmf_run config=mmf/projects/hateful_memes/configs/visual_bert/direct.yaml     mo
 mmf_run config=mmf/projects/hateful_memes/configs/visual_bert/visual_bert_hateful.yaml     model=visual_bert     dataset=hateful_memes
 ```
 
-# Expanding the Hateful Memes Dataset
+
 
 
 # Running The Experiments
