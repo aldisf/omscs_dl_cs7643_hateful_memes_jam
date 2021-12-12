@@ -172,6 +172,9 @@ MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/torchvision-encoders/re
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/torchvision-encoders/wide_resnet50_2.yaml model=unimodal_image dataset=hateful_memes
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/torchvision-encoders/wide_resnet101_2.yaml model=unimodal_image dataset=hateful_memes
 
+# EfficientNet
+MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/efficientnet/unimodal/efficientnet-b0.yaml model=unimodal_efficientnet dataset=hateful_memes
+
 # BERT
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/bert/defaults.yaml model=unimodal_text dataset=hateful_memes
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/bert/finetuned_on_hateful_memes.yaml model=unimodal_text dataset=hateful_memes
@@ -183,6 +186,12 @@ MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/roberta/defaults.yaml m
 ## Multimodal
 
 ```
+# Late Fusion (EfficientNet + BERT)
+MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/efficientnet/late_fusion/efficientnet-b0.yaml model=late_fusion_efficientnet dataset=hateful_memes
+
+# Concat (EfficientNet + BERT)
+MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/efficientnet/concat_bert/efficientnet-b0.yaml model=concat_bert_efficientnet dataset=hateful_memes
+
 # Visual BERT
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/visual_bert/direct.yaml model=visual_bert dataset=hateful_memes
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/visual_bert/finetuned_on_hateful_mememes.yaml model=visual_bert dataset=hateful_memes
