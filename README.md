@@ -125,6 +125,11 @@ After downloading the files, you can refer to the specific instructions inside t
 mmf_run config=mmf/projects/hateful_memes/configs/unimodal/bert.yaml     model=unimodal_text     dataset=hateful_memes
 ```
 
+### BERT (Cased)
+```
+mmf_run config=mmf/projects/hateful_memes/configs/unimodal/bert_cased.yaml     model=unimodal_text     dataset=hateful_memes
+```
+
 ### RoBERTa
 Modify the `UnimodalBase` class in `mmf/mmf/models/unimodal.py`
 ```
