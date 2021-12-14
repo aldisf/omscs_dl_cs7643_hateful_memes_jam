@@ -5,7 +5,7 @@ cater to the various models used as image/text encoders. Start with a blank
 conda environment:
 
 ```
-conda  create -n cs7643_project python=3.7
+conda create -n cs7643_project python=3.7
 conda activate cs7643_project
 ```
 
