@@ -179,7 +179,7 @@ MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/efficientnet/unimodal/e
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/bert/defaults.yaml model=unimodal_text dataset=hateful_memes
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/bert/finetuned_on_hateful_memes.yaml model=unimodal_text dataset=hateful_memes
 
-# RoBERTa -- CUBLAS issue, others to test
+# RoBERTa
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/roberta/defaults.yaml model=unimodal_text_modified_roberta datset=hateful_memes
 ```
 
@@ -196,3 +196,12 @@ MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/efficientnet/concat_ber
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/visual_bert/direct.yaml model=visual_bert dataset=hateful_memes
 MMF_USER_DIR="$(pwd)" mmf_run config=configs/experiments/visual_bert/finetuned_on_hateful_mememes.yaml model=visual_bert dataset=hateful_memes
 ```
+
+
+# References
+
+Some codes are taken from Facebook's MMF repository. Those files will have comments
+at the top noting so, and the `LICENSE` from Facebook MMF's Github will be present in the
+folder.
+
+https://github.com/facebookresearch/mmf
